@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <% if flash[:notice]%>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert]%>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>  
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "新規作成", new_user_registration_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
