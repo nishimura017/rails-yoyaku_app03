@@ -1,5 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.username %>
-<%= @user.email %>
-<%= @user.profile %>
+<h1>アカウント</h1>
+
+<%= attachment_image_tag $user, :profile_image, fallback: "no-image.png" %>
+<p>email</p>
+<%= $user.email %><br/>
+<p>passwaord</p>
+<%= $user.encrypted_password%>
+
+<%= link_to "編集", edit_user_registration_path %>
+

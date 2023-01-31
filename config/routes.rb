@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   #初期設定２
   root to: "home#index"
   resources :users
+  resources :profiles
   resources :rooms
 end
