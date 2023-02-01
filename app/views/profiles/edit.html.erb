@@ -1,1 +1,30 @@
 <p>プロフィール編集</p>
+<%= form_for(resource, as: resource_name, url: profile_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :profile_image %><br />
+		<%= attachment_image_tag $user, :profile_image, fallback: "no-image.png" %>
+  
+  </div>
+
+	<div class="field">
+		<%= f.label :username %><br/>
+		<%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+	</dev>
+    
+	<div class="field">
+		<%= f.label :profile %><br/>
+		<%= f.text_area :profile, autofocus: true, autocomplete: "email" %>
+	</dev>
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+  <% end %>
+  
+  <h3>Cancel my account</h3>
+  
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  
+  <%= link_to "Back", :back %>
+  
