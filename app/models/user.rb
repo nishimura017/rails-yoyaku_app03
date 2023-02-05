@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :rooms, dependent: :destroy
-  attachment :profile_image # ここを追加（_idは含めない）
+ 
+
+  mount_uploader :profile_image, ProfileImageUploader
 
 end

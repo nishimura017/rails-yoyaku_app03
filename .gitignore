@@ -38,3 +38,5 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+#アップロードした画像をGit管理下から除外
+/public/uploads

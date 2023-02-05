@@ -8,13 +8,13 @@ class UsersController < ApplicationController
   end 
 
  def create
-  $user = User.new(params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image))
+  $user = User.new(params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image, :user_id))
   $user.save
 
  end
   def show
   $user = User.find(params[:id])
-  @user = current_user
+  $user = current_user
  
   end
 
@@ -35,6 +35,6 @@ class UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image)
+    params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image, :user_id )
   end
 end

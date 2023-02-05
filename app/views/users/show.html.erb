@@ -1,10 +1,17 @@
 <h1>アカウント</h1>
 
-<%= attachment_image_tag $user, :profile_image, fallback: "no-image.png" %>
+
 <p>email</p>
 <%= $user.email %><br/>
 <p>passwaord</p>
 <%= $user.encrypted_password%>
+
+<% if $user.profile_image? %>  <!-- アップロード画像がある場合に実行する -->
+  <p>
+    <strong>profile_image:</strong>
+    <%= image_tag $user.profile_image.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+  </p>
+<% end %>
 
 <%= link_to "編集", edit_user_registration_path %>
 

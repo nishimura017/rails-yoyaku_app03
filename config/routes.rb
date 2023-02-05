@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users
   resources :profiles
   resources :rooms
+  put 'profiles/:id/edit', to: 'profile#update' 
 end

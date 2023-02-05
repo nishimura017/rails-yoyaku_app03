@@ -1,8 +1,9 @@
 <p>プロフィール詳細</p>
 
-<%= attachment_image_tag $user, :profile_image, fallback: "no-image.png" %>
 <%= $user.username%>
 <%= $user.profile%>
+
+
 
 
 <%= link_to "編集", edit_profile_path %>

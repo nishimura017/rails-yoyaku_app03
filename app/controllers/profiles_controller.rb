@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+ 
 	
 	def show
 		$user = User.find(params[:id])
@@ -7,21 +8,21 @@ class ProfilesController < ApplicationController
 	def edit
 		$user = User.find(params[:id])
     if $user != current_user
-        redirect_to user_path(current_user), alert: "不正なアクセスです。"
+        redirect_to user_path($user), alert: "不正なアクセスです。"
     end
 	end
 
 	def update
     if $user.update(user_params)
-      redirect_to user_path(current_user), notice: "プロフィール情報を更新しました。"
+
+      redirect_to user_path($user), notice: "プロフィール情報を更新しました。"
     else
       render :edit
-    end
+    end 
+  end
 
-
-	end
 	private
   def user_params
-    params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image)
+    params.require(:user).permit(:username, :email, :encrypted_password, :profile, :profile_image, )
   end
 end
